@@ -26,7 +26,6 @@ A dataset of movies, `movies`, is available in the workspace.
 *** =pre_exercise_code
 ```{python}
 a=1337
-b="hello world"
 ```
 
 *** =sample_code
