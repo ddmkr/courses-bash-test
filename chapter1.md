@@ -1,45 +1,8 @@
 ---
-title       : Insert the chapter title here
+title       : Intro to Bash
 description : Insert the chapter description here
 attachments :
   slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
-
---- type:MultipleChoiceExercise lang:python xp:50 skills:1 key:68cba99b8f
-## A really bad movie
-
-Have a look at the plot that showed up in the viewer to the right. Which type of movies have the worst rating assigned to them?
-
-*** =instructions
-- Long movies, clearly
-- Short movies, clearly
-- Long movies, but the correlation seems weak
-- Short movies, but the correlation seems weak
-
-*** =hint
-Have a look at the plot. Do you see a trend in the dots?
-
-*** =pre_exercise_code
-```{python}
-# The pre exercise code runs code to initialize the user's workspace.
-# You can use it to load packages, initialize datasets and draw a plot in the viewer
-
-import pandas as pd
-import matplotlib.pyplot as plt
-
-movies = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/movies.csv")
-
-plt.scatter(movies.runtime, movies.rating)
-plt.show()
-```
-
-*** =sct
-```{python}
-# SCT written with pythonwhat: https://github.com/datacamp/pythonwhat/wiki
-
-msg_bad = "That is not correct!"
-msg_success = "Exactly! The correlation is very weak though."
-test_mc(4, [msg_bad, msg_bad, msg_bad, msg_success])
-```
 
 --- type:NormalExercise lang:python xp:100 skills:1 key:a38ebbbeb1
 ## Plot the movies yourself
@@ -62,60 +25,29 @@ A dataset of movies, `movies`, is available in the workspace.
 
 *** =pre_exercise_code
 ```{python}
-import pandas as pd
-movies = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/movies.csv")
-
-import numpy as np
+a=1337
+b="hello world"
 ```
 
 *** =sample_code
 ```{python}
-# Get integer values for genres
-_, ints = np.unique(movies.genre, return_inverse = True)
+# Print a
+echo $a
 
-# Import matplotlib.pyplot
-
-
-# Make a scatter plot: runtime on  x-axis, rating on y-axis and set c to ints
-
-
-# Show the plot
+# Print b
 
 ```
 
 *** =solution
 ```{python}
-# Get integer values for genres
-_, ints = np.unique(movies.genre, return_inverse = True)
+# Print a
+echo $a
 
-# Import matplotlib.pyplot
-import matplotlib.pyplot as plt
-
-# Make a scatter plot: runtime on  x-axis, rating on y-axis and set c to ints
-plt.scatter(movies.runtime, movies.rating, c=ints)
-
-# Show the plot
-plt.show()
+# Print b
+echo $b
 ```
 
 *** =sct
 ```{python}
-# SCT written with pythonwhat: https://github.com/datacamp/pythonwhat/wiki
 
-test_function("numpy.unique",
-              not_called_msg = "Don't remove the call of `np.unique` to define `ints`.",
-              incorrect_msg = "Don't change the call of `np.unique` to define `ints`.")
-
-test_object("ints",
-            undefined_msg = "Don't remove the definition of the predefined `ints` object.",
-            incorrect_msg = "Don't change the definition of the predefined `ints` object.")
-
-test_import("matplotlib.pyplot", same_as = True)
-
-test_function("matplotlib.pyplot.scatter",
-              incorrect_msg = "You didn't use `plt.scatter()` correctly, have another look at the instructions.")
-
-test_function("matplotlib.pyplot.show")
-
-success_msg("Great work!")
 ```
